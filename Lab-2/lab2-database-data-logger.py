@@ -17,7 +17,8 @@ cursor.execute('''CREATE TABLE IF NOT EXISTS sensordata (id integer, readTime ti
 		temperature float, humidity float, pressure float);''' )
 
 dbconnect.row_factory = sqlite3.Row;
-id = 0
+id = -1
+
 #Data insertion loop
 while True:
 	id+= 1
@@ -27,7 +28,6 @@ while True:
 	pressure = round( sense.get_pressure(), 2)
 	
 	cursor.execute('''INSERT INTO sensordata VALUES(?, ?, ?, ?, ?);''', (id, readTime, temperature, humidity, pressure))
-	print(id)
 	dbconnect.commit()
 	time.sleep(1)
 
