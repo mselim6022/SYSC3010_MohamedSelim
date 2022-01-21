@@ -11,7 +11,8 @@ dbconnect = sqlite3.connect("sensorDB.db")
 #create a cursor
 cursor = dbconnect.cursor()
 
-#create the table
+#create the table (if a table already exits, drop it and create a new one)
+cursor.execute("DROP TABLE IF EXISTS sensordata")
 cursor.execute('''CREATE TABLE IF NOT EXISTS sensordata (id integer, readTime timestamp, 
 		temperature float, humidity float, pressure float);''' )
 
