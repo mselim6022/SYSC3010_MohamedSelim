@@ -1,8 +1,6 @@
 from pandas import read_sql_query
 import sqlite3
 import plotly.graph_objects as go
-import plotly.express as px
-
 from plotly.subplots import make_subplots
 
 #Connect the database
