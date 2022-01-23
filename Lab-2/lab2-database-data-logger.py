@@ -11,8 +11,9 @@ dbconnect = sqlite3.connect("sensorDB.db")
 #create a cursor
 cursor = dbconnect.cursor()
 
-#create the table (if a table already exits, drop it and create a new one)
-cursor.execute("DROP TABLE IF EXISTS sensordata")
+#clear table from any previous entries, create new table
+cursor.execute('''DROP TABLE IF EXISTS sensordata''')
+
 cursor.execute('''CREATE TABLE IF NOT EXISTS sensordata (id integer, readTime timestamp, 
 		temperature float, humidity float, pressure float);''' )
 
@@ -26,7 +27,9 @@ while True:
 	pressure = round( sense.get_pressure(), 2)
 	
 	cursor.execute('''INSERT INTO sensordata VALUES(?, datetime('now'), ?, ?, ?);''', (id, temperature, humidity, pressure))
-	print(id)
+	print("Value with ID "+ str(id) + " has been recorded.")
 	dbconnect.commit()
 	time.sleep(1)
-
+	#Determines how many values are recorded
+	if id == 15:
+		break
