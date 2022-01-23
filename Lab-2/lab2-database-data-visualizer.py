@@ -17,7 +17,7 @@ fig = make_subplots(specs=[[{"secondary_y": True}]])
 
 #Add trace for temperature and humidity values
 fig.add_trace(
-	go.Scatter(x=df['readTime'], y= df['temperature'], name = "Temperature(C)", mode="markers"),
+	go.Scatter(x=df['readTime'], y= df['temperature'], name = "Temperature(\u2103)", mode="markers"),
 	secondary_y = False
 )
 fig.add_trace(
