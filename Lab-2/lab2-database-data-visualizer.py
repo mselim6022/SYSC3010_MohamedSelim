@@ -13,6 +13,7 @@ df = read_sql_query('''SELECT * from sensordata''', dbconnect, "id", "readTime")
 #order of magnitude, we will plot them on the same y axis. The values of pressure will be on a separate
 #y axis.
 fig = make_subplots(specs=[[{"secondary_y": True}]])
+fig.update_layout(title = "Sensor Data over time")
 
 
 #Add trace for temperature and humidity values
