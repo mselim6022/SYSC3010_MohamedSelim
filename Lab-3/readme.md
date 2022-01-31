@@ -13,5 +13,5 @@ are specified at the beginning of the code.
 
 ## [lab3-firebase.py](https://github.com/mselim6022/SYSC3010_MohamedSelim/blob/main/Lab-3/lab3-firebase.py)
 This program uses the sensors of a connected SenseHat to determine the Temperature, Humidity and Pressure around it, and proceeds to write this information to
-the provided Firebase database. The program then reads the last 3 entries of another provided Firebase database. The details for the database to send data to
-are provided under config{}. The details for the database to read data from are provided under config2{}. 
+the provided Firebase database. In total, 5 readings are made and entered into the database. The program then reads the last 3 entries of another provided Firebase database. 
+The details for the database to send data to are provided under config{}. The details for the database to read data from are provided under config2{}. 
