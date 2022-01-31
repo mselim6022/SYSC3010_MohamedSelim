@@ -4,7 +4,7 @@ This file includes brief descriptions to the files in [Lab-3](https://github.com
 
 ## [lab3-thingspeak-read.py](https://github.com/mselim6022/SYSC3010_MohamedSelim/blob/main/Lab-3/lab3-thingspeak-read.py)
 This program reads the most recent entry from a ThingSpeak channel and displays them on the Display of a connected SenseHat. The details of the channel 
-(ReadApiKey, url and channel number) are specified at the beginning of the code.
+(ReadApiKey, url and channel number) are specified at the beginning of the code. The values read are floored for convenience.
 
 ## [lab3-thingspeak-write.py](https://github.com/mselim6022/SYSC3010_MohamedSelim/blob/main/Lab-3/lab3-thingspeak-write.py)
 This program uses the sensors of a connected SenseHat to determine the Temperature, Humidity and Pressure around it, and proceeds to write this information to a provided
