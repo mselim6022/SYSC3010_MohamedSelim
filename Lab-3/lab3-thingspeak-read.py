@@ -23,7 +23,8 @@ def main():
     # Print out the temperature at each entry's time
     for e in entries:
         sense.show_message("Entry {}: Temperature: {} Humidity: {} Pressure: {}".format(e['entry_id'], int(float(e['field1'])), int(float(e['field2'])), int(float(e['field3']))), scroll_speed= 0.05)
-        
+     
+    sense.clear() 
 
 if __name__ == "__main__":
     main()
