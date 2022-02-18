@@ -12,13 +12,12 @@ def person_detected(image1_file, image2_file, t1):
   buffer1 = np.asarray(image1);
   buffer2 = np.asarray(image2);
   
-  # Sum up all the elements of each array (for each pixel, sums the rgb values for brightness, and then adds up the sums of all pixels)
-  image1sum = np.sum(buffer1)
-  image2sum = np.sum(buffer2)
+  buffer3 = buffer2 - buffer1
+  print(buffer3)
   
   # Find the difference between the two sums
-  sumDifferences = abs(image1sum - image2sum)
-    
+  sumDifferences = np.sum(buffer3)
+
   if (sumDifferences < t1):
     return False
   return True
