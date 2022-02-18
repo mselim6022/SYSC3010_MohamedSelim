@@ -5,8 +5,8 @@ def main():
     camera_i = camera.get_camera()
     sense = sensehat.get_sensehat()
     while True:
-        option = input("Enter \'1\' if a background image is saved in data/images/background.png\n\
-        Enter \'2\' to take the background image")
+        option = input("Enter \'1\' if a background image is saved in data/images/background.png\n" +
+        "Enter \'2\' to take the background image\n")
         if(int(option) == 1):
             take_background_image = False
         elif(int(option) == 2):
@@ -14,8 +14,8 @@ def main():
         else:
             continue
         if (take_background_image):
-            print("Get out of the scene!\n\
-            Background image will be taken in 10 seconds...")
+            print("Get out of the scene!\n" +
+            "Background image will be taken in 10 seconds...")
             for i in range(10):
                 sleep(1)
                 print(10-i)
@@ -25,18 +25,19 @@ def main():
             camera.capture_image(camera_i,"data/images/background.jpg", countdown_time=countdown, preview=preview)
             print("Background image taken!\n")
             take_background_image = False
-        while (! take_background_image):
-            optionArm = ("Would you like to arm the system? y/n")
-            if (optionArm is "y"):
+        
+        while (not(take_background_image)):
+            optionArm = input("Would you like to arm the system? y/n\n")
+            if (optionArm == "y"):
                 arm_system = True
-            elif(optionArm is "n"):
+            elif(optionArm == "n"):
                 arm_system = False
             else:
                 continue
                 
             if (arm_system):
-                interval = int(input("Enter the interval between test images in seconds:"))
-                t1 = int(input("Enter the threshold t1:"))
+                interval = int(input("Enter the interval between test images in seconds:\n"))
+                t1 = int(input("Enter the threshold t1:\n"))
                 
                 print("Monitoring will begin in %d seconds..." % interval)
                 for i in range(interval):
@@ -55,7 +56,8 @@ def main():
                     else:
                         print("No Person Detected") 
                     count += 1
-
+            else:
+              return
 
 if __name__ == "__main__":
     main()
