@@ -36,21 +36,35 @@ def main():
 def writeData():
   
   key = 0
+  option = input("Select data to send to the database\nEnter T for temperature, H for humidity, or P for pressure\n")
   
-  while key < 5:
-    sensorData = {
+  if(input == "T"):
+     while key < 5:
+        sensorData = {
        "sensor1" : {
-         "temperature" : sense.get_temperature(),
-         "humidity" : sense.get_humidity(),
+         "temperature" : sense.get_temperature()
+       }
+     }
+  elif(input == "H"):
+      while key < 5:
+        sensorData = {
+       "sensor1" : {
+         "humidity" : sense.get_humidity()
+       }
+     }
+  elif(input == "P"):
+      while key < 5:
+        sensorData = {
+           "sensor1" : {
          "pressure" : sense.get_pressure()
        }
      }
        
       # Each 'child' is a JSON key:value pair
-    db.child(dataset).child(key).set(sensorData)
+  db.child(dataset).child(key).set(sensorData)
   
-    key = key + 1
-    time.sleep(1)
+  key = key + 1
+  time.sleep(1)
 
 def readData():
   # Returns the entry as an ordered dictionary (parsed from json)
@@ -63,7 +77,7 @@ def readData():
   mySensorData_list = mySensorData.each()
   #splices the last 3 elements of the list
   entries = mySensorData_list[-3:]
-  #Loops through the splice and prints each entry
+  #Loops through the splice and prints each 
   for i in entries:
     print("Child Key: {}".format(i.key()))
     print("Child Value: {}\n".format(i.val()))
