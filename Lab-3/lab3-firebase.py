@@ -56,7 +56,7 @@ def writeData():
       while key < 5:
         sensorData = {
            "sensor1" : {
-         "pressure" : sense.get_pressure()
+         " pressure" : sense.get_pressure()
        }
      }
        
