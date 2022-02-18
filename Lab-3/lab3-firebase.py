@@ -10,9 +10,22 @@ config = {
   "databaseURL": "https://sysc3010-lab3-87285-default-rtdb.firebaseio.com/",
   "storageBucket": "sysc3010-lab3-87285.appspot.com"
 }
+
+config2 = {
+  "apiKey": "AIzaSyDqevs8PW0sIpRblR_J6KgffYdBlsKcnP0",
+  "authDomain": "sysc3010-lab3-87285.firebaseapp.com",
+  "databaseURL": "https://sysc3010-lab3-87285-default-rtdb.firebaseio.com/",
+  "storageBucket": "sysc3010-lab3-87285.appspot.com"
+}
+
+
 sense = SenseHat()
 firebase = pyrebase.initialize_app(config)
 db = firebase.database()
+
+firebase = pyrebase.initialize_app(config2)
+db2 = firebase.database()
+
 dataset = "senseHat readings"
 
 def main():
@@ -41,10 +54,10 @@ def writeData():
 
 def readData():
   # Returns the entry as an ordered dictionary (parsed from json)
-  mySensorData = db.child(dataset).get()
+  mySensorData = db2.child(dataset).get()
 
   print("Parent Key: {}".format(mySensorData.key()))
-  print("Parent Value: {}\n".format(mySensorData.val()))
+  #print("Parent Value: {}\n".format(mySensorData.val()))
 
   # Returns the dictionary as a list
   mySensorData_list = mySensorData.each()
